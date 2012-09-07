@@ -7,10 +7,10 @@ var milisec = 0;
 var countdownEnEjecucion=false;
 var modalOpen=false;
 
-function loadDisplayCountDown(seg){
+function iniciarCronometro(){
     
     if(!countdownEnEjecucion){
-        segundos = seg;
+        segundos = 60;
         countdownEnEjecucion = true;
         displayCountDown();
     }
@@ -26,20 +26,19 @@ function displayCountDown(){
  if (segundos<=-1){ 
     milisec=0;
     segundos=0;
-    $("#tiempoEspera").html("Ahora ya puede autentificarse");
-    $("#tiempoEspera").removeClass("tiempoEspera").addClass("tiempoEsperaOK");
-    $("#comentarioTiempoEspera").hide();
-    countdownEnEjecucion = false;
+    $("#divCronometroPrincipal").addClass("tiempoTerminado");
+    //countdownEnEjecucion = false;
     return true;
     
  } 
  else 
-    milisec-=1 
-    var mensaje = segundos+"."+milisec
-    $("#tiempoEspera").html(mensaje);
-    if (modalOpen){
-        setTimeout("displayCountDown()",100);
-    }
+    milisec-=1
+
+    var seg=segundos;
+    if(seg<10) seg = '0'+seg;
+    $("#relojSegundos").html(seg);
+    $("#relojMiliSegundos").html(milisec);
+    setTimeout("displayCountDown()",100);
        
     
     //displayCountDown(); 
