@@ -17,8 +17,6 @@ function iniciarCronometro(){
 }
 
 function displayCountDown(){ 
-
-
  if (milisec<=0){ 
     milisec=9;
     segundos-=1; 
@@ -29,18 +27,14 @@ function displayCountDown(){
     $("#divCronometroPrincipal").addClass("tiempoTerminado");
     //countdownEnEjecucion = false;
     return true;
-    
  } 
  else 
-    milisec-=1
-
     var seg=segundos;
+    milisec-=1;
     if(seg<10) seg = '0'+seg;
     $("#relojSegundos").html(seg);
     $("#relojMiliSegundos").html(milisec);
     setTimeout("displayCountDown()",100);
-       
-    
-    //displayCountDown(); 
+    return true;
 } 
  
