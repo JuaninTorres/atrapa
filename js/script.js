@@ -25,7 +25,6 @@ function displayCountDown(){
     milisec=0;
     segundos=0;
     $("#divCronometroPrincipal").addClass("tiempoTerminado");
-    //countdownEnEjecucion = false;
     return true;
  } 
  else 
